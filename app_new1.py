@@ -672,4 +672,13 @@ with gr.Blocks(css=custom_css) as demo:
     """)
 
 # Launch the Gradio interface with debug mode enabled
-demo.launch(debug=True, share=False, inbrowser=True)
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 7860))
+    demo.launch(
+        server_name="0.0.0.0",
+        server_port=port,
+        debug=True,
+        share=False,
+        inbrowser=False
+    )
